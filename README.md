@@ -8,6 +8,14 @@ chmod +x install
 
 ./install
 
+cd tg
+
+mv telegram-cli-1222 tg
+
+chmod +x tg
+
+cd ..
+
 ./run
 
 number
