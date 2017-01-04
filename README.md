@@ -13,6 +13,9 @@ chmod +x install.sh
 number
 
 code
+
+screen ./run
 ```
 
 
+# @mafia_cli
