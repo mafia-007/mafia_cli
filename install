@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 chmod 777 run
 cd tg
-wget "https://valtman.name/files/telegram-cli-1215"
+wget "https://valtman.name/files/telegram-cli-1222"
 mv telegram-cli-1215 tg
 cd ..
 sudo pip3 install redis
