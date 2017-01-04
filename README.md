@@ -6,7 +6,7 @@ cd mafia_cli
 
 chmod +x install.sh
 
-./install.sh
+./install
 
 ./run
 
