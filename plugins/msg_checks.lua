@@ -16,8 +16,8 @@ tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_lock_english = group[tostring(msg.chat_id)]['settings']['lock_english']
 local is_english_msg = msg.text:match("[a-z]") or msg.text:match("[A-Z]")
-local is_not_english_msg = msg.text:match("!!!photo:") or msg.text:match("!!!tgservice:") or msg.text:match("!!!edit:") or msg.text:match("!!!video:") or msg.text:match("!!!audio:") or msg.text:match("!!!voice:") or msg.text:match("!!!document:")
-if group_lock_english == 'yes' and is_english_msg and not is_not_english_msg then
+local is_not_english_msg = msg.text:match("!!!photo:") or msg.text:match("!!!english:")
+if group_lock_english == 'yes' and is_english_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_lock_persian = group[tostring(msg.chat_id)]['settings']['lock_persian']
@@ -27,12 +27,12 @@ tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_tgservice']
 local is_tgservice_msg = msg.text:match("!!!tgservice:")
-if group_lock_tgservice == 'yes' and is_persian_msg then
+if group_lock_tgservice == 'yes' and is_tgservice_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_lock_tgservice = group[tostring(msg.chat_id)]['settings']['lock_sticker']
-local is_tgservice_msg = msg.text:match("!!!sticker:")
-if group_lock_tgservice == 'yes' and is_persian_msg then
+local group_lock_sticker = group[tostring(msg.chat_id)]['settings']['lock_sticker']
+local is_sticker_msg = msg.text:match("!!!sticker:")
+if group_lock_sticker == 'yes' and is_sticker_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_lock_spam = group[tostring(msg.chat_id)]['settings']['lock_spam']
@@ -41,34 +41,34 @@ local _nl, real_digits = string.gsub(msg.text, '%d', '')
 if group_lock_spam == "yes" and string.len(msg.text) > 2049 or ctrl_chars > 40 or real_digits > 2000 then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_mute_photo = group[tostring(msg.chat_id)]['settings']['mute_video']
+local group_mute_video = group[tostring(msg.chat_id)]['settings']['mute_video']
 local is_video_msg = msg.text:match("!!!video:")
 if group_mute_video == 'yes' and is_video_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_mute_photo = group[tostring(msg.chat_id)]['settings']['mute_voice']
-local is_video_msg = msg.text:match("!!!voice:")
-if group_mute_video == 'yes' and is_video_msg then
+local group_mute_voice = group[tostring(msg.chat_id)]['settings']['mute_voice']
+local is_voice_msg = msg.text:match("!!!voice:")
+if group_mute_voice == 'yes' and is_video_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_mute_photo = group[tostring(msg.chat_id)]['settings']['mute_document']
-local is_video_msg = msg.text:match("!!!document:")
-if group_mute_video == 'yes' and is_video_msg then
+local group_mute_document = group[tostring(msg.chat_id)]['settings']['mute_document']
+local is_document_msg = msg.text:match("!!!document:")
+if group_mute_document == 'yes' and is_document_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_mute_photo = group[tostring(msg.chat_id)]['settings']['mute_gif']
-local is_video_msg = msg.text:match("!!!gif:")
-if group_mute_video == 'yes' and is_video_msg then
+local group_mute_gif = group[tostring(msg.chat_id)]['settings']['mute_gif']
+local is_gif_msg = msg.text:match("!!!gif:")
+if group_mute_gif == 'yes' and is_gif_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_mute_photo = group[tostring(msg.chat_id)]['settings']['mute_audio']
-local is_video_msg = msg.text:match("!!!audio:")
-if group_mute_video == 'yes' and is_video_msg then
+local group_mute_audio = group[tostring(msg.chat_id)]['settings']['mute_audio']
+local is_audio_msg = msg.text:match("!!!audio:")
+if group_mute_audio == 'yes' and is_audio_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
-local group_link_lock = group[tostring(msg.chat_id)]['settings']['lock_link']
+local group_links_lock = group[tostring(msg.chat_id)]['settings']['lock_link']
 local is_link_msg = msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
-if is_link_msg and group_link_lock == 'yes'then
+if is_link_msg and group_links_lock == 'yes'then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_edit_lock = group[tostring(msg.chat_id)]['settings']['lock_edit']
@@ -85,6 +85,11 @@ local is_username_msg = msg.text:match("@")
 if group_username_lock == 'yes' and is_username_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
+local group_tg_lock = group[tostring(msg.chat_id)]['settings']['lock_tg']
+local is_tg_msg = msg.text:match("#")
+if group_tg_lock == 'yes' and is_tag_msg then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end
 end
 end
 end
@@ -97,3 +102,7 @@ return {
 
 --@mafia_cli
 --https://github.com/mafia-007
+
+
+
+
