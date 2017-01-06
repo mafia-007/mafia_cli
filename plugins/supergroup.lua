@@ -50,8 +50,59 @@ else
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
-
-
+local function lock_group_english(msg, target)
+local group = load_data('bot/group.json')
+  local group_english_lock = group[tostring(target)]['settings']['lock_english']
+  if group_english_lock == 'yes' then
+    pm = '<b>english</b> <b>➣➣</b> <b>lock</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_english'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>english</b> <b>➣➣</b> <b>locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function lock_group_persian(msg, target)
+local group = load_data('bot/group.json')
+  local group_persian_lock = group[tostring(target)]['settings']['lock_persian']
+  if group_persian_lock == 'yes' then
+    pm = '<b>persian</b> <b>➣➣</b> <b>lock</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_persian'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>persian</b> <b>➣➣</b> <b>locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function lock_group_tgservice(msg, target)
+local group = load_data('bot/group.json')
+  local group_tgservice_lock = group[tostring(target)]['settings']['lock_tgservice']
+  if group_tgservice_lock == 'yes' then
+    pm = '<b>tgservice</b> <b>➣➣</b> <b>lock</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_tgservice'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>tgservice</b> <b>➣➣</b> <b>locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function lock_group_tg(msg, target)
+local group = load_data('bot/group.json')
+  local group_tg_lock = group[tostring(target)]['settings']['lock_tg']
+  if group_tg_lock == 'yes' then
+    pm = '<b>tg</b> <b>➣➣</b> <b>lock</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_tg'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>tg</b> <b>➣➣</b> <b>locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+------------------
 local function unlock_group_links(msg, target)
 local group = load_data('bot/group.json')
   local group_link_lock = group[tostring(target)]['settings']['lock_link']
@@ -117,19 +168,59 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
-local function unlock_group_spam(msg, target)
+local function unlock_group_english(msg, target)
 local group = load_data('bot/group.json')
-  local group_spamlock = group[tostring(target)]['settings']['lock_spam']
-  if group_spam_lock == 'no' then
-    pm = '<b>Spem</b> <b>➣➣</b> <b>unlock</b>'
+  local group_english_lock = group[tostring(target)]['settings']['lock_english']
+  if group_english_lock == 'no' then
+    pm = '<b>english</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
-    group[tostring(target)]['settings']['lock_spam'] = 'no'
+    group[tostring(target)]['settings']['lock_english'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Spem</b> <b>➣➣</b> <b>unlocked</b>'
+    pm= '<b>english</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
+local function unlock_group_persian(msg, target)
+local group = load_data('bot/group.json')
+  local group_persian_lock = group[tostring(target)]['settings']['lock_persian']
+  if group_persian_lock == 'no' then
+    pm = '<b>persian</b> <b>➣➣</b> <b>unlock</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_persian'] = 'no'
+    save_data(_config.group.data, group)
+    pm= '<b>persian</b> <b>➣➣</b> <b>unlocked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function unlock_group_tgservice(msg, target)
+local group = load_data('bot/group.json')
+  local group_tgservice_lock = group[tostring(target)]['settings']['lock_tgservice']
+  if group_tgservice_lock == 'no' then
+    pm = '<b>tgservice</b> <b>➣➣</b> <b>unlock</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_tgservice'] = 'no'
+    save_data(_config.group.data, group)
+    pm= '<b>tgservice</b> <b>➣➣</b> <b>unlocked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function unlock_group_tg(msg, target)
+local group = load_data('bot/group.json')
+  local group_tg_lock = group[tostring(target)]['settings']['lock_tg']
+  if group_tg_lock == 'no' then
+    pm = '<b>tag</b> <b>➣➣</b> <b>unlock</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_tg'] = 'no'
+    save_data(_config.group.data, group)
+    pm= '<b>tg</b> <b>➣➣</b> <b>unlocked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+----------
 local function mute_all_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_all = group[tostring(target)]['settings']['mute_all']
@@ -316,17 +407,21 @@ local function group_settings(msg, target)
 local group = load_data('bot/group.json')
 pm = '<b>SuperGroup settings</b>'
 pm = pm..'\n\n ➣ <b>Lock Links</b> : '..group[tostring(target)]['settings']['lock_link']..''
-pm = pm..'\n\n ➣ <b>Lock Username</b> : '..group[tostring(target)]['settings']['lock_username']..''
-pm = pm..'\n\n ➣ <b>Lock Edit</b> : '..group[tostring(target)]['settings']['lock_edit']..''
-pm = pm..'\n\n ➣ <b>Lock Fwd</b> : '..group[tostring(target)]['settings']['lock_fwd']..''
-pm = pm..'\n\n ➣ <b>Lock Spam</b> : '..group[tostring(target)]['settings']['lock_spam']..''
-pm = pm..'\n\n ➣ <b>Mute All</b> : '..group[tostring(target)]['settings']['mute_all']..''
-pm = pm..'\n\n ➣ <b>Mute Photo</b> : '..group[tostring(target)]['settings']['mute_photo']..''
-pm = pm..'\n\n ➣ <b>Mute Video</b> : '..group[tostring(target)]['settings']['mute_video']..''
-pm = pm..'\n\n ➣ <b>Mute Voice</b> : '..group[tostring(target)]['settings']['mute_voice']..''
-pm = pm..'\n\n ➣ <b>Mute Document</b> : '..group[tostring(target)]['settings']['mute_document']..''
-pm = pm..'\n\n ➣ <b>Mute Audio</b> : '..group[tostring(target)]['settings']['mute_audio']..''
-pm = pm..'\n\n ➣ <b>Mute Gif</b> : '..group[tostring(target)]['settings']['mute_gif']..''
+pm = pm..'\n ➣ <b>Lock Username</b> : '..group[tostring(target)]['settings']['lock_username']..''
+pm = pm..'\n ➣ <b>Lock Edit</b> : '..group[tostring(target)]['settings']['lock_edit']..''
+pm = pm..'\n ➣ <b>Lock Fwd</b> : '..group[tostring(target)]['settings']['lock_fwd']..''
+pm = pm..'\n ➣ <b>Lock Spam</b> : '..group[tostring(target)]['settings']['lock_spam']..''
+pm = pm..'\n ➣ <b>Lock english</b> : '..group[tostring(target)]['settings']['lock_english']..''
+pm = pm..'\n ➣ <b>Lock persian</b> : '..group[tostring(target)]['settings']['lock_persian']..''
+pm = pm..'\n ➣ <b>Lock tgservice</b> : '..group[tostring(target)]['settings']['lock_tgservice']..''
+--pm = pm..'\n ➣ <b>Lock tg</b> : '..group[tostring(target)]['settings']['lock_tg']..''
+pm = pm..'\n ➣ <b>Mute All</b> : '..group[tostring(target)]['settings']['mute_all']..''
+pm = pm..'\n ➣ <b>Mute Photo</b> : '..group[tostring(target)]['settings']['mute_photo']..''
+pm = pm..'\n ➣ <b>Mute Video</b> : '..group[tostring(target)]['settings']['mute_video']..''
+pm = pm..'\n ➣ <b>Mute Voice</b> : '..group[tostring(target)]['settings']['mute_voice']..''
+pm = pm..'\n ➣ <b>Mute Document</b> : '..group[tostring(target)]['settings']['mute_document']..''
+pm = pm..'\n ➣ <b>Mute Audio</b> : '..group[tostring(target)]['settings']['mute_audio']..''
+pm = pm..'\n ➣ <b>Mute Gif</b> : '..group[tostring(target)]['settings']['mute_gif']..''
 pm = pm..'\n\n<b> mafia_cli </b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 end
@@ -347,10 +442,18 @@ elseif matches[2] == 'username' then
 lock_group_username(msg, msg.chat_id)
 elseif matches[2] == 'spam' then
 lock_group_spam(msg, msg.chat_id)
+elseif matches[2] == 'english' then
+lock_group_english(msg, msg.chat_id)
+elseif matches[2] == 'persian' then
+lock_group_persian(msg, msg.chat_id)
+elseif matches[2] == 'tgservice' then
+lock_group_tgservice(msg, msg.chat_id)
+elseif matches[2] == 'tg' then
+lock_group_tg(msg, msg.chat_id)
 end
 elseif matches[1] == 'unlock' then
 if matches[2] == 'links' then
-unlock_group_links(msg, msg.chat_id,group )
+unlock_group_links(msg, msg.chat_id,group)
 elseif matches[2] == 'edit' then
 unlock_group_edit(msg, msg.chat_id)
 elseif matches[2] == 'fwd' then
@@ -359,6 +462,14 @@ elseif matches[2] == 'username' then
 unlock_group_username(msg, msg.chat_id)
 elseif matches[2] == 'spam' then
 unlock_group_spam(msg, msg.chat_id)
+elseif matches[2] == 'english' then
+unlock_group_english(msg, msg.chat_id)
+elseif matches[2] == 'persian' then
+unlock_group_persian(msg, msg.chat_id)
+elseif matches[2] == 'tgservice' then
+unlock_group_tgservice(msg, msg.chat_id)
+elseif matches[2] == 'tg' then
+unlock_group_tg(msg, msg.chat_id)
 end
 elseif matches[1] == 'mute' then
 if matches[2] == 'all' then
@@ -412,3 +523,6 @@ return {
 }
 --@mafia_cli
 --https://github.com/mafia-007
+
+
+
