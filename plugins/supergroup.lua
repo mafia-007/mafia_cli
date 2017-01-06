@@ -2,12 +2,12 @@ local function lock_group_links(msg, target)
 local group = load_data('bot/group.json')
   local group_link_lock = group[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'yes' then
-    pm = 'قفل لینک فعال بود.'
+    pm = '<b>Link</b> <b>➣➣</b> <b>lock</b>'
   tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 else
     group[tostring(target)]['settings']['lock_link'] = 'yes'
     save_data(_config.group.data, group)
-    pm = 'قفل لینک فعال شد.'
+    pm = '<b>Link</b> <b>➣➣</b> <b>locked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -15,12 +15,12 @@ local function lock_group_username(msg, target)
 local group = load_data('bot/group.json')
   local group_username_lock = group[tostring(target)]['settings']['lock_username']
   if group_username_lock == 'yes' then
-    pm = 'قفل ارسال نام کاربری فعال بود.'
+    pm = '<b>username</b> <b>➣➣</b> <b>lock</b>'
   tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 else
     group[tostring(target)]['settings']['lock_username'] = 'yes'
     save_data(_config.group.data, group)
-    pm = 'قفل ارسال نام کاربری فعال شد.'
+    pm = '<b>username</b> <b>➣➣</b> <b>locked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -28,12 +28,12 @@ local function lock_group_edit(msg, target)
 local group = load_data('bot/group.json')
   local group_edit_lock = group[tostring(target)]['settings']['lock_edit']
   if group_edit_lock == 'yes' then
-    pm = 'قفل ویرایش پیام فعال بود.'
+    pm = '<b>Edite</b> <b>➣➣</b> <b>lock</b>'
   tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 else
     group[tostring(target)]['settings']['lock_edit'] = 'yes'
     save_data(_config.group.data, group)
-    pm = 'قفل ویرایش پیام فعال شد.'
+    pm = '<b>Edite</b> <b>➣➣</b> <b>locked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -41,12 +41,12 @@ local function lock_group_fwd(msg, target)
 local group = load_data('bot/group.json')
   local group_fwd_lock = group[tostring(target)]['settings']['lock_fwd']
   if group_fwd_lock == 'yes' then
-    pm = 'قفل فوروارد پیام فعال بود.'
+    pm = '<b>Fwd</b> <b>➣➣</b> <b>lock</b>'
   tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 else
     group[tostring(target)]['settings']['lock_fwd'] = 'yes'
     save_data(_config.group.data, group)
-    pm = 'قفل فوروارد پیام فعال شد.'
+    pm = '<b>Fwd</b> <b>➣➣</b> <b>locked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -56,12 +56,12 @@ local function unlock_group_links(msg, target)
 local group = load_data('bot/group.json')
   local group_link_lock = group[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'no' then
-    pm = 'قفل لینک غیر فعال بوده است.'
+    pm = '<b>Link</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['lock_link'] = 'no'
     save_data(_config.group.data, group)
-    pm= 'قفل لینک غیر فعال شد.'
+    pm= '<b>Link</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -69,12 +69,12 @@ local function unlock_group_username(msg, target)
 local group = load_data('bot/group.json')
   local group_username_lock = group[tostring(target)]['settings']['lock_username']
   if group_username_lock == 'no' then
-    pm = 'قفل ارسال نام کاربری غیر فعال بوده است.'
+    pm = '<b>username</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['lock_username'] = 'no'
     save_data(_config.group.data, group)
-    pm= 'قفل ارسال نام کربری غیر فعال شد.'
+    pm= '<b>username</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -82,12 +82,12 @@ local function unlock_group_edit(msg, target)
 local group = load_data('bot/group.json')
   local group_edit_lock = group[tostring(target)]['settings']['lock_edit']
   if group_edit_lock == 'no' then
-    pm = 'قفل ویرایش پیام غیر فعال بوده است.'
+    pm = '<b>Edite</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['lock_edit'] = 'no'
     save_data(_config.group.data, group)
-    pm= 'قفل ویرایش پیام غیر فعال شد.'
+    pm= '<b>Edite</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -95,12 +95,12 @@ local function unlock_group_fwd(msg, target)
 local group = load_data('bot/group.json')
   local group_fwd_lock = group[tostring(target)]['settings']['lock_fwd']
   if group_fwd_lock == 'no' then
-    pm = 'قفل فوروارد غیر فعال بوده است.'
+    pm = '<b>Fwd</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['lock_fwd'] = 'no'
     save_data(_config.group.data, group)
-    pm= 'قفل فوروارد غیر فعال شد.'
+    pm= '<b>Fwd</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -108,12 +108,12 @@ local function lock_group_spam(msg, target)
 local group = load_data('bot/group.json')
   local group_spam_lock = group[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'yes' then
-    pm = 'قفل اسپم غیر فعال بوده است.'
+    pm = '<b>Spem</b> <b>➣➣</b> <b>lock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['lock_spam'] = 'yes'
     save_data(_config.group.data, group)
-    pm= 'قفل اسپم غیر فعال شد.'
+    pm= '<b>Spem</b> <b>➣➣</b> <b>locked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -121,12 +121,12 @@ local function unlock_group_spam(msg, target)
 local group = load_data('bot/group.json')
   local group_spamlock = group[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'no' then
-    pm = 'قفل اسپم غیر فعال بوده است.'
+    pm = '<b>Spem</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['lock_spam'] = 'no'
     save_data(_config.group.data, group)
-    pm= 'قفل اسپم غیر فعال شد.'
+    pm= '<b>Spem</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -134,12 +134,12 @@ local function mute_all_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_all = group[tostring(target)]['settings']['mute_all']
   if mute_all  == 'yes' then
-    pm = '<b>Mute All:yes</b>'
+    pm = '<b>All</b> ➣➣ <b>mute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_all'] = 'yes'
     save_data(_config.group.data, group)
-    pm= '<b>Mute All:yes</b>'
+    pm= '<b>All</b> ➣➣ <b>muted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -147,12 +147,12 @@ local function unmute_all_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_all = group[tostring(target)]['settings']['mute_all']
   if mute_all  == 'no' then
-    pm = '<b>Mute All:no</b>'
+    pm = '<b>All</b> ➣➣ <b>unmute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_all'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Mute All:no</b>'
+    pm= '<b>All</b> ➣➣ <b>unmuted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -160,12 +160,12 @@ local function mute_photo_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_all = group[tostring(target)]['settings']['mute_photo']
   if mute_all  == 'yes' then
-    pm = '<b>Mute Photo:yes</b>'
+    pm = '<b>Photo</b> ➣➣ <b>unmute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_photo'] = 'yes'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Photo:yes</b>'
+    pm= '<b>Photo</b> ➣➣ <b>muted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -173,12 +173,12 @@ local function unmute_photo_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_all = group[tostring(target)]['settings']['mute_photo']
   if mute_all  == 'no' then
-    pm = '<b>Mute Photo:no</b>'
+    pm = '<b>Photo</b> ➣➣ <b>unmute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_photo'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Photo:no</b>'
+    pm= '<b>Photo</b> ➣➣ <b>unmuted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -186,12 +186,12 @@ local function mute_video_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_video = group[tostring(target)]['settings']['mute_video']
   if mute_video  == 'yes' then
-    pm = '<b>Mute Video:yes</b>'
+    pm = '<b>Video</b> ➣➣ <b>mute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_video'] = 'yes'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Video:yes</b>'
+    pm= '<b>Video</b> ➣➣ <b>muted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -199,12 +199,12 @@ local function unmute_video_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_video = group[tostring(target)]['settings']['mute_video']
   if mute_video  == 'no' then
-    pm = '<b>Mute Video:no</b>'
+    pm = '<b>Video</b> ➣➣ <b>unmute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_video'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Video:no</b>'
+    pm= '<b>Video</b> ➣➣ <b>unmuted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -212,12 +212,12 @@ local function mute_gif_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_gif = group[tostring(target)]['settings']['mute_gif']
   if mute_gif  == 'yes' then
-    pm = '<b>Mute Gif:yes</b>'
+    pm = '<b>Gifs</b> ➣➣ <b>mute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_gif'] = 'yes'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Gif:yes</b>'
+    pm= '<b>Gifs</b> ➣➣ <b>muted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -225,12 +225,12 @@ local function unmute_gif_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_gif = group[tostring(target)]['settings']['mute_gif']
   if mute_gif  == 'no' then
-    pm = '<b>Mute Gif:no</b>'
+    pm = '<b>Gifs</b> ➣➣ <b>unmute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_gif'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Gif:no</b>'
+    pm= '<b>Gifs</b> ➣➣ <b>unmuted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -238,12 +238,12 @@ local function mute_voice_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_voice = group[tostring(target)]['settings']['mute_voice']
   if mute_voice  == 'yes' then
-    pm = '<b>Mute Voice:yes</b>'
+    pm = '<b>Voice</b> ➣➣ <b>mute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_voice'] = 'yes'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Voice:yes</b>'
+    pm= '<b>Voice</b> ➣➣ <b>muted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -251,12 +251,12 @@ local function unmute_voice_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_voice = group[tostring(target)]['settings']['mute_voice']
   if mute_voice  == 'no' then
-    pm = '<b>Mute Voice:no</b>'
+    pm = '<b>Voice</b> ➣➣ <b>unmute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_voice'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Voice:no</b>'
+    pm= '<b>Voice</b> ➣➣ <b>unmuted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -264,12 +264,12 @@ local function mute_audio_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_audio = group[tostring(target)]['settings']['mute_audio']
   if mute_audio  == 'yes' then
-    pm = '<b>Mute Audio:yes</b>'
+    pm = '<b>Audio</b> ➣➣ <b>mute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_audio'] = 'yes'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Audio:yes</b>'
+    pm= '<b>Audio</b> ➣➣ <b>muted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -277,12 +277,12 @@ local function unmute_audio_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_audio = group[tostring(target)]['settings']['mute_audio']
   if mute_audio  == 'no' then
-    pm = '<b>Mute Audio:no</b>'
+    pm = '<b>Audio</b> ➣➣ <b>unmute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_audio'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Audio:no</b>'
+    pm= '<b>Audio</b> ➣➣ <b>unmuted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -290,12 +290,12 @@ local function mute_document_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_document = group[tostring(target)]['settings']['mute_document']
   if mute_document  == 'yes' then
-    pm = '<b>Mute Document:yes</b>'
+    pm = '<b>Documents</b> ➣➣ <b>mute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_document'] = 'yes'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Document:yes</b>'
+    pm= '<b>Documents</b> ➣➣ <b>muted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -303,12 +303,12 @@ local function unmute_document_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_document = group[tostring(target)]['settings']['mute_document']
   if mute_document  == 'no' then
-    pm = '<b>Mute Document:no</b>'
+    pm = '<b>Documents</b> ➣➣ <b>unmute</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_document'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Mute Document:no</b>'
+    pm= '<b>Documents</b> ➣➣ <b>unmuted</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
