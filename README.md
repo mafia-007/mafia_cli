@@ -23,9 +23,11 @@ number
 code
 
 screen ./run
+```
 
-SuperGroup settings
 
+#SuperGroup settings
+```
  ➣ Lock Links : no
  ➣ Lock Username : no
  ➣ Lock Edit : no
