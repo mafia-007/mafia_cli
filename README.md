@@ -28,12 +28,13 @@ screen ./run
 
 #SuperGroup settings
 ```
- ➣ Lock Links : no
+  ➣ Lock Links : no
  ➣ Lock Username : no
  ➣ Lock Edit : no
  ➣ Lock Fwd : no
  ➣ Lock Spam : no
- ➣ Lock english : no
+ ➣ Lock sticker : no
+ ➣ Lock English : no
  ➣ Lock persian : no
  ➣ Lock tgservice : no
  ➣ Mute All : no
@@ -44,7 +45,7 @@ screen ./run
  ➣ Mute Audio : no
  ➣ Mute Gif : no
 
- mafia_cli
+ mafia_cl
  ```
 
 # @mafia_cli
