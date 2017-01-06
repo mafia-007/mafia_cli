@@ -28,7 +28,7 @@ screen ./run
 
 #SuperGroup settings
 ```
-  ➣ Lock Links : no
+ ➣ Lock Links : no
  ➣ Lock Username : no
  ➣ Lock Edit : no
  ➣ Lock Fwd : no
