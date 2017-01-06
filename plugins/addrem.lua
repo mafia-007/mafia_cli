@@ -27,9 +27,9 @@ mute_audio = "no"
                   }
       }
       save_data(_config.group.data, group)
-tg.sendMessage(msg.chat_id, msg.id_, 1, 'گروه با موفقیت اضافه شد.', 1)
+tg.sendMessage(msg.chat_id, msg.id_, 1, 'SuperGroup ➣➣ added', 1)
 else
-tg.sendMessage(msg.chat_id, msg.id_, 1, 'گروه از قبل در وجود دارد..', 1)
+tg.sendMessage(msg.chat_id, msg.id_, 1, 'SuperGroup ➣➣ add', 1)
 end
 end
 local function remgroup(msg)
@@ -38,9 +38,9 @@ local groupa = group[tostring(msg.chat_id)]
 if groupa then
 group[tostring(msg.chat_id)] = nil
       save_data(_config.group.data, group)
-tg.sendMessage(msg.chat_id, msg.id_, 1, 'گروه با موفیت حذف شد.', 1)
+tg.sendMessage(msg.chat_id, msg.id_, 1, 'SuperGroup ➣➣ removed', 1)
 else
-tg.sendMessage(msg.chat_id, msg.id_, 1, 'گروه از قبل وجود نداشته است.', 1)
+tg.sendMessage(msg.chat_id, msg.id_, 1, 'SuperGroup ➣➣ remove', 1)
 end
 end
 
@@ -55,10 +55,8 @@ return {
   patterns = {
     "^[/#!](add)$",
     "^[/#!](rem)$",
-"^!!!edit:[/#!](add)$",
+ "^!!!edit:[/#!](add)$",
     "^!!!edit:[/#!](rem)$"
   },
   run = run
 }
---@mafia_cli
---https://github.com/mafia-007
