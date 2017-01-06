@@ -50,16 +50,29 @@ else
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
+local function lock_group_sticker(msg, target)
+local group = load_data('bot/group.json')
+  local group_sticker_lock = group[tostring(target)]['settings']['lock_sticker']
+  if group_sticker_lock == 'yes' then
+    pm = '<b>sticker</b> <b>➣➣</b> <b>lock</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_sticker'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>sticker</b> <b>➣➣</b> <b>locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
 local function lock_group_english(msg, target)
 local group = load_data('bot/group.json')
   local group_english_lock = group[tostring(target)]['settings']['lock_english']
   if group_english_lock == 'yes' then
-    pm = '<b>english</b> <b>➣➣</b> <b>lock</b>'
+    pm = '<b>English</b> <b>➣➣</b> <b>lock</b>'
   tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 else
     group[tostring(target)]['settings']['lock_english'] = 'yes'
     save_data(_config.group.data, group)
-    pm = '<b>english</b> <b>➣➣</b> <b>locked</b>'
+    pm = '<b>English</b> <b>➣➣</b> <b>locked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -89,16 +102,16 @@ else
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
-local function lock_group_tg(msg, target)
+local function lock_group_tag(msg, target)
 local group = load_data('bot/group.json')
-  local group_tg_lock = group[tostring(target)]['settings']['lock_tg']
-  if group_tg_lock == 'yes' then
-    pm = '<b>tg</b> <b>➣➣</b> <b>lock</b>'
+  local group_tag_lock = group[tostring(target)]['settings']['lock_tag']
+  if group_tag_lock == 'yes' then
+    pm = '<b>tag</b> <b>➣➣</b> <b>lock</b>'
   tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 else
-    group[tostring(target)]['settings']['lock_tg'] = 'yes'
+    group[tostring(target)]['settings']['lock_tag'] = 'yes'
     save_data(_config.group.data, group)
-    pm = '<b>tg</b> <b>➣➣</b> <b>locked</b>'
+    pm = '<b>tag</b> <b>➣➣</b> <b>locked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -168,16 +181,29 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
+local function unlock_group_sticker(msg, target)
+local group = load_data('bot/group.json')
+  local group_sticker_lock = group[tostring(target)]['settings']['lock_sticker']
+  if group_sticker_lock == 'no' then
+    pm = '<b>sticker</b> <b>➣➣</b> <b>unlock</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_sticker'] = 'no'
+    save_data(_config.group.data, group)
+    pm= '<b>sticker</b> <b>➣➣</b> <b>unlocked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
 local function unlock_group_english(msg, target)
 local group = load_data('bot/group.json')
   local group_english_lock = group[tostring(target)]['settings']['lock_english']
   if group_english_lock == 'no' then
-    pm = '<b>english</b> <b>➣➣</b> <b>unlock</b>'
+    pm = '<b>English</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['lock_english'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>english</b> <b>➣➣</b> <b>unlocked</b>'
+    pm= '<b>English</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -207,16 +233,16 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
-local function unlock_group_tg(msg, target)
+local function unlock_group_tag(msg, target)
 local group = load_data('bot/group.json')
-  local group_tg_lock = group[tostring(target)]['settings']['lock_tg']
-  if group_tg_lock == 'no' then
+  local group_tag_lock = group[tostring(target)]['settings']['lock_tag']
+  if group_tag_lock == 'no' then
     pm = '<b>tag</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
-    group[tostring(target)]['settings']['lock_tg'] = 'no'
+    group[tostring(target)]['settings']['lock_tag'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>tg</b> <b>➣➣</b> <b>unlocked</b>'
+    pm= '<b>tag</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -411,10 +437,11 @@ pm = pm..'\n ➣ <b>Lock Username</b> : '..group[tostring(target)]['settings']['
 pm = pm..'\n ➣ <b>Lock Edit</b> : '..group[tostring(target)]['settings']['lock_edit']..''
 pm = pm..'\n ➣ <b>Lock Fwd</b> : '..group[tostring(target)]['settings']['lock_fwd']..''
 pm = pm..'\n ➣ <b>Lock Spam</b> : '..group[tostring(target)]['settings']['lock_spam']..''
-pm = pm..'\n ➣ <b>Lock english</b> : '..group[tostring(target)]['settings']['lock_english']..''
+pm = pm..'\n ➣ <b>Lock sticker</b> : '..group[tostring(target)]['settings']['lock_sticker']..''
+pm = pm..'\n ➣ <b>Lock English</b> : '..group[tostring(target)]['settings']['lock_english']..''
 pm = pm..'\n ➣ <b>Lock persian</b> : '..group[tostring(target)]['settings']['lock_persian']..''
 pm = pm..'\n ➣ <b>Lock tgservice</b> : '..group[tostring(target)]['settings']['lock_tgservice']..''
---pm = pm..'\n ➣ <b>Lock tg</b> : '..group[tostring(target)]['settings']['lock_tg']..''
+--pm = pm..'\n ➣ <b>Lock tag</b> : '..group[tostring(target)]['settings']['lock_tag']..''
 pm = pm..'\n ➣ <b>Mute All</b> : '..group[tostring(target)]['settings']['mute_all']..''
 pm = pm..'\n ➣ <b>Mute Photo</b> : '..group[tostring(target)]['settings']['mute_photo']..''
 pm = pm..'\n ➣ <b>Mute Video</b> : '..group[tostring(target)]['settings']['mute_video']..''
@@ -442,18 +469,20 @@ elseif matches[2] == 'username' then
 lock_group_username(msg, msg.chat_id)
 elseif matches[2] == 'spam' then
 lock_group_spam(msg, msg.chat_id)
+elseif matches[2] == 'sticker' then
+lock_group_sticker(msg, msg.chat_id)
 elseif matches[2] == 'english' then
 lock_group_english(msg, msg.chat_id)
 elseif matches[2] == 'persian' then
 lock_group_persian(msg, msg.chat_id)
 elseif matches[2] == 'tgservice' then
 lock_group_tgservice(msg, msg.chat_id)
-elseif matches[2] == 'tg' then
-lock_group_tg(msg, msg.chat_id)
+elseif matches[2] == 'tag' then
+lock_group_tag(msg, msg.chat_id)
 end
 elseif matches[1] == 'unlock' then
 if matches[2] == 'links' then
-unlock_group_links(msg, msg.chat_id,group)
+unlock_group_links(msg, msg.chat_id,group )
 elseif matches[2] == 'edit' then
 unlock_group_edit(msg, msg.chat_id)
 elseif matches[2] == 'fwd' then
@@ -462,14 +491,16 @@ elseif matches[2] == 'username' then
 unlock_group_username(msg, msg.chat_id)
 elseif matches[2] == 'spam' then
 unlock_group_spam(msg, msg.chat_id)
+elseif matches[2] == 'sticker' then
+unlock_group_sticker(msg, msg.chat_id)
 elseif matches[2] == 'english' then
 unlock_group_english(msg, msg.chat_id)
 elseif matches[2] == 'persian' then
 unlock_group_persian(msg, msg.chat_id)
+elseif matches[2] == 'tag' then
+unlock_group_tag(msg, msg.chat_id)
 elseif matches[2] == 'tgservice' then
 unlock_group_tgservice(msg, msg.chat_id)
-elseif matches[2] == 'tg' then
-unlock_group_tg(msg, msg.chat_id)
 end
 elseif matches[1] == 'mute' then
 if matches[2] == 'all' then
@@ -523,6 +554,3 @@ return {
 }
 --@mafia_cli
 --https://github.com/mafia-007
-
-
-
