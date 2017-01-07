@@ -67,7 +67,7 @@ if group_mute_audio == 'yes' and is_audio_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_links_lock = group[tostring(msg.chat_id)]['settings']['lock_link']
-local is_link_msg = msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
+local is_link_msg = msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Tt].[Mm][Ee]/") or msg.text:match("[Hh][Tt][Tt][Pp][Ss]:/")
 if is_link_msg and group_links_lock == 'yes'then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
