@@ -441,7 +441,7 @@ pm = pm..'\n ➣ <b>Lock sticker</b> : '..group[tostring(target)]['settings']['l
 pm = pm..'\n ➣ <b>Lock English</b> : '..group[tostring(target)]['settings']['lock_english']..''
 pm = pm..'\n ➣ <b>Lock persian</b> : '..group[tostring(target)]['settings']['lock_persian']..''
 pm = pm..'\n ➣ <b>Lock tgservice</b> : '..group[tostring(target)]['settings']['lock_tgservice']..''
---pm = pm..'\n ➣ <b>Lock tag</b> : '..group[tostring(target)]['settings']['lock_tag']..''
+pm = pm..'\n ➣ <b>Lock tag</b> : '..group[tostring(target)]['settings']['lock_tag']..''
 pm = pm..'\n ➣ <b>Mute All</b> : '..group[tostring(target)]['settings']['mute_all']..''
 pm = pm..'\n ➣ <b>Mute Photo</b> : '..group[tostring(target)]['settings']['mute_photo']..''
 pm = pm..'\n ➣ <b>Mute Video</b> : '..group[tostring(target)]['settings']['mute_video']..''
@@ -497,10 +497,10 @@ elseif matches[2] == 'english' then
 unlock_group_english(msg, msg.chat_id)
 elseif matches[2] == 'persian' then
 unlock_group_persian(msg, msg.chat_id)
-elseif matches[2] == 'tag' then
-unlock_group_tag(msg, msg.chat_id)
 elseif matches[2] == 'tgservice' then
 unlock_group_tgservice(msg, msg.chat_id)
+elseif matches[2] == 'tag' then
+unlock_group_tag(msg, msg.chat_id)				
 end
 elseif matches[1] == 'mute' then
 if matches[2] == 'all' then
