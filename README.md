@@ -22,6 +22,8 @@ number
 
 code
 ................
+cd mafia_cli
+
 killall screen
 
 killall tag
