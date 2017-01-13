@@ -5,10 +5,10 @@ do local _ = {
     "supergroup",
     "msg_checks",
     "pin",
-	"owner",
-	"ping",
-	"plugins",
-	"admin"
+    "owner",
+    "online",
+    "plugins",
+    "admin"
   },
   group  = {
     data = "bot/group.json"
