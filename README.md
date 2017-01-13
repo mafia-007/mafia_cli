@@ -16,13 +16,17 @@ chmod +x tg
 
 cd ..
 
-./run
+./launch
 
 number
 
 code
+................
+killall screen
 
-screen ./run
+killall tag
+
+screen ./launch
 ```
 
 
@@ -36,7 +40,8 @@ screen ./run
  ➣ Lock sticker : no
  ➣ Lock English : no
  ➣ Lock persian : no
- ➣ Lock tgservice : no
+ ➣ Lock Tgservice : no
+ ➣ Lock Tag : no
  ➣ Mute All : no
  ➣ Mute Photo : no
  ➣ Mute Video : no
