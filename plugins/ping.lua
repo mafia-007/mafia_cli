@@ -1,10 +1,9 @@
 ﻿local function run(msg, matches)
-tg.sendMessage(msg.chat_id, 0, 0,  "pong", 0)
+tg.sendMessage(msg.chat_id, 0, 0,  "<b>online</b>", 0)
 end
 return {
   patterns = {
-    "^([Pp][Ii][Nn][Gg])$",
-	"^[!#/]([Pp][Ii][Nn][Gg])$",
+	"^[!#/]([Mm][Aa][Ff][Ii][Aa])$",
   },
   run = run
 }
