@@ -44,7 +44,9 @@ screen ./launch
  ➣ Lock persian : no
  ➣ Lock Tgservice : no
  ➣ Lock Tag : no
+ ➣ Lock Inline : no
  ➣ Mute All : no
+ ➣ Mute Text : no
  ➣ Mute Photo : no
  ➣ Mute Video : no
  ➣ Mute Voice : no
