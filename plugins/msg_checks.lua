@@ -9,6 +9,11 @@ local group_mute_all = group[tostring(msg.chat_id)]['settings']['mute_all']
 if group_mute_all == 'yes' then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
+local group_mute_text = group[tostring(msg.chat_id)]['settings']['mute_text']
+local is_text_msg = msg.text:match("!!!text:")
+if group_mute_text == 'yes' and msg.content_.text_ then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end      
 local group_mute_photo = group[tostring(msg.chat_id)]['settings']['mute_photo']
 local is_photo_msg = msg.text:match("!!!photo:")
 if group_mute_photo == 'yes' and is_photo_msg then
@@ -16,7 +21,7 @@ tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
 local group_lock_english = group[tostring(msg.chat_id)]['settings']['lock_english']
 local is_english_msg = msg.text:match("[a-z]") or msg.text:match("[A-Z]")
-local is_not_english_msg = msg.text:match("!!!photo:") or msg.text:match("!!!english:")
+local is_not_english_msg =  msg.text:match("!!!english:")
 if group_lock_english == 'yes' and is_english_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
 end
@@ -89,6 +94,9 @@ local group_tag_lock = group[tostring(msg.chat_id)]['settings']['lock_tag']
 local is_tag_msg = msg.text:match("#")
 if group_tag_lock == 'yes' and is_tag_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+local group_inline_lock = group[tostring(msg.chat_id)]['settings']['lock_inline']
+if group_inline_lock == 'yes' and msg.via_bot_user_id_ ~= 0 then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })        
 end
 end
 end
