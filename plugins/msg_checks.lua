@@ -94,6 +94,7 @@ local group_tag_lock = group[tostring(msg.chat_id)]['settings']['lock_tag']
 local is_tag_msg = msg.text:match("#")
 if group_tag_lock == 'yes' and is_tag_msg then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end        
 local group_inline_lock = group[tostring(msg.chat_id)]['settings']['lock_inline']
 if group_inline_lock == 'yes' and msg.via_bot_user_id_ ~= 0 then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })        
@@ -107,7 +108,7 @@ return {
   },
   run = run
 }
-end
+
 --@mafia_cli
 --https://github.com/mafia-007
 
