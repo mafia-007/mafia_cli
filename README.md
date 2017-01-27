@@ -34,27 +34,28 @@ screen ./launch
 
 #SuperGroup settings
 ```
- ➣ Lock Links : no
- ➣ Lock Username : no
- ➣ Lock Edit : no
- ➣ Lock Fwd : no
- ➣ Lock Spam : no
- ➣ Lock sticker : no
- ➣ Lock English : no
- ➣ Lock persian : no
- ➣ Lock Tgservice : no
- ➣ Lock Tag : no
- ➣ Lock Inline : no
- ➣ Mute All : no
- ➣ Mute Text : no
- ➣ Mute Photo : no
- ➣ Mute Video : no
- ➣ Mute Voice : no
- ➣ Mute Document : no
- ➣ Mute Audio : no
- ➣ Mute Gif : no
-
- mafia_cl
+ →→→→→→→→→→→→
+ ➣ Lock ➣ Links » yes
+ ➣ Lock ➣ User » no
+ ➣ Lock ➣ Edit » no
+ ➣ Lock ➣ Fwd » no
+ ➣ Lock ➣ Spam » no
+ ➣ Lock ➣ Sticker :»no
+ ➣ Lock ➣ En » no
+ ➣ Lock ➣ Fa » no
+ ➣ Lock ➣ Tg » no
+ ➣ Lock ➣ Tag » no
+ ➣ Lock ➣ Inline » no
+ ➣ Lock ➣ All » no
+ ➣ Lock ➣ Text » no
+ ➣ Lock ➣ Photo » no
+ ➣ Lock ➣ Video » no
+ ➣ Lock ➣ Voice » no
+ ➣ Lock ➣ Doc » no
+ ➣ Lock ➣ Audio » no
+ ➣ Lock ➣ Gif » no
+ →→→→→→→→→→→→ 
+  mafia_cli
  ```
 
 # @mafia_cli
