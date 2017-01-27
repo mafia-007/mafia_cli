@@ -273,6 +273,7 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
 ----------
+
 local function mute_all_group(msg, target)
 local group = load_data('bot/group.json')
   local mute_all = group[tostring(target)]['settings']['mute_all']
@@ -481,29 +482,33 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
+
 local function group_settings(msg, target)
 local group = load_data('bot/group.json')
-pm = '<b>SuperGroup settings</b>'
-pm = pm..'\n\n ➣ <b>Lock Links</b> : '..group[tostring(target)]['settings']['lock_link']..''
-pm = pm..'\n ➣ <b>Lock Username</b> : '..group[tostring(target)]['settings']['lock_username']..''
-pm = pm..'\n ➣ <b>Lock Edit</b> : '..group[tostring(target)]['settings']['lock_edit']..''
-pm = pm..'\n ➣ <b>Lock Fwd</b> : '..group[tostring(target)]['settings']['lock_fwd']..''
-pm = pm..'\n ➣ <b>Lock Spam</b> : '..group[tostring(target)]['settings']['lock_spam']..''
-pm = pm..'\n ➣ <b>Lock sticker</b> : '..group[tostring(target)]['settings']['lock_sticker']..''
-pm = pm..'\n ➣ <b>Lock english</b> : '..group[tostring(target)]['settings']['lock_english']..''
-pm = pm..'\n ➣ <b>Lock persian</b> : '..group[tostring(target)]['settings']['lock_persian']..''
-pm = pm..'\n ➣ <b>Lock tgservice</b> : '..group[tostring(target)]['settings']['lock_tgservice']..''
-pm = pm..'\n ➣ <b>Lock tag</b> : '..group[tostring(target)]['settings']['lock_tag']..''
-pm = pm..'\n ➣ <b>Lock Inline</b> : '..group[tostring(target)]['settings']['lock_inline']..''
-pm = pm..'\n ➣ <b>Mute All</b> : '..group[tostring(target)]['settings']['mute_all']..''
-pm = pm..'\n ➣ <b>Mute Text</b> : '..group[tostring(target)]['settings']['mute_text']..''
-pm = pm..'\n ➣ <b>Mute Photo</b> : '..group[tostring(target)]['settings']['mute_photo']..''
-pm = pm..'\n ➣ <b>Mute Video</b> : '..group[tostring(target)]['settings']['mute_video']..''
-pm = pm..'\n ➣ <b>Mute Voice</b> : '..group[tostring(target)]['settings']['mute_voice']..''
-pm = pm..'\n ➣ <b>Mute Document</b> : '..group[tostring(target)]['settings']['mute_document']..''
-pm = pm..'\n ➣ <b>Mute Audio</b> : '..group[tostring(target)]['settings']['mute_audio']..''
-pm = pm..'\n ➣ <b>Mute Gif</b> : '..group[tostring(target)]['settings']['mute_gif']..''
-pm = pm..'\n\n<b> mafia_cli </b>'
+pm = '<b>SuperGroup settings</b> \n <code>→→→→→→→→→→→→</code>'
+--pm = pm..'\n <code>→→→→→→→→→→→→</code>'
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Links</b> <code>»</code> '..group[tostring(target)]['settings']['lock_link']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>User</b> <code>»</code> '..group[tostring(target)]['settings']['lock_username']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Edit</b> <code>»</code> '..group[tostring(target)]['settings']['lock_edit']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Fwd</b> <code>»</code> '..group[tostring(target)]['settings']['lock_fwd']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Spam</b> <code>»</code> '..group[tostring(target)]['settings']['lock_spam']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Sticker</b> :<code>»</code>'..group[tostring(target)]['settings']['lock_sticker']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>En</b> <code>»</code> '..group[tostring(target)]['settings']['lock_english']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Fa</b> <code>»</code> '..group[tostring(target)]['settings']['lock_persian']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Tg</b> <code>»</code> '..group[tostring(target)]['settings']['lock_tgservice']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Tag</b> <code>»</code> '..group[tostring(target)]['settings']['lock_tag']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Inline</b> <code>»</code> '..group[tostring(target)]['settings']['lock_inline']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>All</b> <code>»</code> '..group[tostring(target)]['settings']['mute_all']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Text</b> <code>»</code> '..group[tostring(target)]['settings']['mute_text']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Photo</b> <code>»</code> '..group[tostring(target)]['settings']['mute_photo']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Video</b> <code>»</code> '..group[tostring(target)]['settings']['mute_video']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Voice</b> <code>»</code> '..group[tostring(target)]['settings']['mute_voice']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Doc</b> <code>»</code> '..group[tostring(target)]['settings']['mute_document']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Audio</b> <code>»</code> '..group[tostring(target)]['settings']['mute_audio']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Gif</b> <code>»</code> '..group[tostring(target)]['settings']['mute_gif']..''
+--pm = '<code>→→→→→→→→→→→→</code>'
+pm = pm..'\n <code>→→→→→→→→→→→→</code> \n <b> mafia_cli </b>'
+
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 end
 local function run(msg, matches)
@@ -560,7 +565,7 @@ unlock_group_tgservice(msg, msg.chat_id)
 elseif matches[2] == 'inline' then
 unlock_group_inline(msg, msg.chat_id,group )
 end
-elseif matches[1] == 'mute' then
+elseif matches[1] == 'mute' or matches[1] == 'lock' then
 if matches[2] == 'all' then
 mute_all_group(msg, msg.chat_id)
 elseif matches[2] == 'text' then
@@ -578,7 +583,7 @@ mute_voice_group(msg, msg.chat_id)
 elseif matches[2] == 'video' then
 mute_video_group(msg, msg.chat_id)
 end
-elseif matches[1] == 'unmute' then
+elseif matches[1] == 'unmute' or matches[1] == 'unlock' then
 if matches[2] == 'all' then
 unmute_all_group(msg, msg.chat_id,group )
 elseif matches[2] == 'text' then
@@ -618,5 +623,8 @@ return {
 }
 --@mafia_cli
 --https://github.com/mafia-007
+
+
+
 
 
