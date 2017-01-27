@@ -8,7 +8,11 @@ do local _ = {
     "owner",
     "online",
     "plugins",
-    "admin"
+    "admin",
+    "id",
+    "del",
+    "clean",
+    "expiretime"
   },
   group  = {
     data = "bot/group.json"
