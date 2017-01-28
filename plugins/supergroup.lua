@@ -50,6 +50,19 @@ else
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
+local function lock_group_spam(msg, target)
+local group = load_data('bot/group.json')
+  local group_spam_lock = group[tostring(target)]['settings']['lock_spam']
+  if group_spam_lock == 'yes' then
+    pm = '<b>Spem</b> <b>➣➣</b> <b>lock</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_spam'] = 'yes'
+    save_data(_config.group.data, group)
+    pm= '<b>Spem</b> <b>➣➣</b> <b>locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
 local function lock_group_sticker(msg, target)
 local group = load_data('bot/group.json')
   local group_sticker_lock = group[tostring(target)]['settings']['lock_sticker']
@@ -194,16 +207,16 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
-local function lock_group_spam(msg, target)
+local function unlock_group_spam(msg, target)
 local group = load_data('bot/group.json')
   local group_spam_lock = group[tostring(target)]['settings']['lock_spam']
-  if group_spam_lock == 'yes' then
-    pm = '<b>Spem</b> <b>➣➣</b> <b>lock</b>'
+  if group_spam_lock == 'no' then
+    pm = '<b>Spam</b> <b>➣➣</b> <b>unlock</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
-    group[tostring(target)]['settings']['lock_spam'] = 'yes'
+    group[tostring(target)]['settings']['lock_spam'] = 'no'
     save_data(_config.group.data, group)
-    pm= '<b>Spem</b> <b>➣➣</b> <b>locked</b>'
+    pm= '<b>Spam</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -642,8 +655,8 @@ return {
     "^[/#!](lock) (.*)$",
     "^[/#!](unlock) (.*)$",
     "^[/#!](mute) (.*)$",
-	"^[/#!](unmute) (.*)$",
-	"^[/#!](settings)$",
+    "^[/#!](unmute) (.*)$",
+    "^[/#!](settings)$",
 "^!!!edit:[/#!](lock) (.*)$",
 "^!!!edit:[/#!](unlock) (.*)$",
 "^!!!edit:[/#!](mute) (.*)$",
