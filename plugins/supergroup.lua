@@ -128,6 +128,19 @@ else
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
+local function lock_group_community(msg, target)
+local group = load_data('bot/group.json')
+  local group_community_lock = group[tostring(target)]['settings']['lock_community']
+  if group_community_lock == 'yes' then
+    pm = '<b>Community</b> <b>➣➣</b> <b>lock</b>'
+  tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+else
+    group[tostring(target)]['settings']['lock_community'] = 'yes'
+    save_data(_config.group.data, group)
+    pm = '<b>Community</b> <b>➣➣</b> <b>locked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
 ------------------
 local function unlock_group_links(msg, target)
 local group = load_data('bot/group.json')
@@ -269,6 +282,19 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
     group[tostring(target)]['settings']['lock_inline'] = 'no'
     save_data(_config.group.data, group)
     pm= '<b>Inline</b> <b>➣➣</b> <b>unlocked</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  end
+end
+local function unlock_group_community(msg, target)
+local group = load_data('bot/group.json')
+  local group_community_lock = group[tostring(target)]['settings']['lock_community']
+  if group_community_lock == 'no' then
+    pm = '<b>Community</b> <b>➣➣</b> <b>unlock</b>'
+tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
+  else
+    group[tostring(target)]['settings']['lock_community'] = 'no'
+    save_data(_config.group.data, group)
+    pm= '<b>Community</b> <b>➣➣</b> <b>unlocked</b>'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -493,11 +519,12 @@ pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Edit</b> <code>»<
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Fwd</b> <code>»</code> '..group[tostring(target)]['settings']['lock_fwd']..''
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Spam</b> <code>»</code> '..group[tostring(target)]['settings']['lock_spam']..''
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Sticker</b> <code>»</code>'..group[tostring(target)]['settings']['lock_sticker']..''
-pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>En</b> <code>»</code> '..group[tostring(target)]['settings']['lock_english']..''
-pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Fa</b> <code>»</code> '..group[tostring(target)]['settings']['lock_persian']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Eng</b> <code>»</code> '..group[tostring(target)]['settings']['lock_english']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Far</b> <code>»</code> '..group[tostring(target)]['settings']['lock_persian']..''
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Tg</b> <code>»</code> '..group[tostring(target)]['settings']['lock_tgservice']..''
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Tag</b> <code>»</code> '..group[tostring(target)]['settings']['lock_tag']..''
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Inline</b> <code>»</code> '..group[tostring(target)]['settings']['lock_inline']..''
+pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Commun</b> <code>»</code> '..group[tostring(target)]['settings']['lock_community']..''
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>All</b> <code>»</code> '..group[tostring(target)]['settings']['mute_all']..''
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Text</b> <code>»</code> '..group[tostring(target)]['settings']['mute_text']..''
 pm = pm..'\n <code>➣</code> <b>Lock</b> <code>➣</code> <b>Photo</b> <code>»</code> '..group[tostring(target)]['settings']['mute_photo']..''
@@ -540,6 +567,8 @@ elseif matches[2] == 'tag' then
 lock_group_tag(msg, msg.chat_id)
 elseif matches[2] == 'inline' then
 lock_group_inline(msg, msg.chat_id)
+elseif matches[2] == 'community' then
+lock_group_community(msg, msg.chat_id)
 end
 elseif matches[1] == 'unlock' then
 if matches[2] == 'links' then
@@ -564,6 +593,8 @@ elseif matches[2] == 'tgservice' then
 unlock_group_tgservice(msg, msg.chat_id)
 elseif matches[2] == 'inline' then
 unlock_group_inline(msg, msg.chat_id,group )
+elseif matches[2] == 'community' then
+unlock_group_community(msg, msg.chat_id)
 end
 elseif matches[1] == 'mute' or matches[1] == 'lock' then
 if matches[2] == 'all' then
