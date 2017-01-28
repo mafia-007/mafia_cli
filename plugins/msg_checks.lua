@@ -99,6 +99,10 @@ local group_inline_lock = group[tostring(msg.chat_id)]['settings']['lock_inline'
 if group_inline_lock == 'yes' and msg.via_bot_user_id_ ~= 0 then
 tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })        
 end
+local group_community_lock = group[tostring(msg.chat_id)]['settings']['lock_community']
+if group_community_lock == 'yes' and not msg.text:match("#") then
+tg.deleteMessages(msg.chat_id_, {[0] = msg.id_ })
+end
 end
 end
 end
