@@ -13,4 +13,4 @@ return {
   run = run
 }
 
-channel : @mafia_cli
+--channel : @mafia_cli
