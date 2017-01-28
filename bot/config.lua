@@ -12,7 +12,8 @@ do local _ = {
     "id",
     "del",
     "clean",
-    "expiretime"
+    "expiretime",
+    "filter"
   },
   group  = {
     data = "bot/group.json"
