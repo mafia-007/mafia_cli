@@ -41,11 +41,12 @@ screen ./launch
  ➣ Lock ➣ Fwd » no
  ➣ Lock ➣ Spam » no
  ➣ Lock ➣ Sticker »no
- ➣ Lock ➣ En » no
- ➣ Lock ➣ Fa » no
+ ➣ Lock ➣ Eng » no
+ ➣ Lock ➣ Far » no
  ➣ Lock ➣ Tg » no
  ➣ Lock ➣ Tag » no
  ➣ Lock ➣ Inline » no
+ ➣ Lock ➣ Commun » yes
  ➣ Lock ➣ All » no
  ➣ Lock ➣ Text » no
  ➣ Lock ➣ Photo » no
