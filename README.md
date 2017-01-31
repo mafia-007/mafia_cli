@@ -51,4 +51,4 @@ screen ./launch
   mafia_cli
  ```
 
-# @mafia_cli
+# [@mafia_cli](https://telegram.me/mafia_cli)
