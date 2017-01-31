@@ -13,14 +13,11 @@ $ ./launch
 
 number
 code
-................
-cd mafia_cli
-
-killall screen
-
-killall tag
-
-screen ./launch
+........................
+$ cd mafia_cli
+$ killall screen
+$ killall tag
+$ screen ./launch
 ```
 
 
