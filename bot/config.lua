@@ -13,7 +13,9 @@ do local _ = {
     "del",
     "clean",
     "expiretime",
-    "filter"
+    "filter",
+    "setlink",
+    "setrules"
   },
   group  = {
     data = "bot/group.json"
