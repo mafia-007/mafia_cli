@@ -15,7 +15,8 @@ do local _ = {
     "expiretime",
     "filter",
     "setlink",
-    "setrules"
+    "setrules",
+    "me"
   },
   group  = {
     data = "bot/group.json"
