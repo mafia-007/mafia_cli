@@ -30,7 +30,7 @@ $ screen ./launch.sh
  Lock ➣ Tg » no
  Lock ➣ Tag » no
  Lock ➣ Inline » no
- Lock ➣ Commun » yes
+ Lock ➣ Commun » no
  Lock ➣ All » no
  Lock ➣ Text » no
  Lock ➣ Photo » no
