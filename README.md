@@ -1,4 +1,5 @@
-# mafia_bot
+--------------------------------------
+## mafia_bot
 
 - git clone https://github.com/mafia-007/mafia_cli
 - cd mafia_cli
@@ -39,5 +40,6 @@
 - Lock ➣ Gif » no
 - mafia_cli
 
+--------------------------------------
 
-# [@mafia_cli](https://telegram.me/mafia_cli)
+## [@mafia_cli](https://telegram.me/mafia_cli)
