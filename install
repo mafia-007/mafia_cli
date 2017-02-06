@@ -3,6 +3,7 @@ chmod 777 launch.sh
 cd tg
 wget "https://valtman.name/files/telegram-cli-1222"
 mv telegram-cli-1222 tg
+chmod +x tg
 cd ..
 sudo pip3 install redis
 sudo service redis-server restart
