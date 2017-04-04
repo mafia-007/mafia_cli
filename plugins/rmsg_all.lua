@@ -56,6 +56,6 @@ return {
   run = run
 }
 
-https://github.com/mafia-007/mafia_cli
+--https://github.com/mafia-007/mafia_cli
 
 
