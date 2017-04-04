@@ -7,13 +7,14 @@
 - ./launch.sh
 - number
 - code
-
----------------------------------------
-- cd mafia_cli
-- killall screen
-- killall tag
+- ctrl + c
 - screen ./launch.sh
-
+---------------------------------------
+---------------------------------------
+## Error run bot
+- cd mafia_cli
+- killall -9 bash
+- screen ./launch.sh
 ---------------------------------------
 
 ##SuperGroup settings
