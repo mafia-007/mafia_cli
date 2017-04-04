@@ -16,7 +16,10 @@ do local _ = {
     "filter",
     "setlink",
     "setrules",
-    "me"
+    "me",
+    "like",
+    "rmsg_all",  
+    "leave"  
   },
   group  = {
     data = "bot/group.json"
