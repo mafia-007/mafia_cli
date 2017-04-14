@@ -1,8 +1,8 @@
 
 local function run(msg, matches)
   if matches[1] == 'id' then
-	 pm = group[tostring(msg.chat_id_)]['id']
-	 tg.sendMessage(msg.chat_id_, 0, 1,'<b>ID</b> ➣➣ ['..msg.from_id..']' , 1, 'html')
+	 
+	 tg.sendMessage(msg.chat_id_, 0, 1,'<b>──────════──────</b> \n📚<b>ID</b> <code>➣➣</code> <b>['..msg.from_id..']</b>\n📚<b>ID</b> <code>➣➣</code> <b>['..msg.chat_id..']</b>\n──────════──────
 	end
     end
 return {
